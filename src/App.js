@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
+import Dashboard from "./routes/dashboard/Dashboard";
 
 import Home from "./routes/home/Home";
 import Login from "./routes/login/Login";
@@ -12,7 +13,7 @@ function App() {
       {/**<PrivateRoute to="/recipes/add" /> */}
       {/**<PrivateRoute to="/recipes/:id/edit" /> */}
       <Route path="/recipes/:id" />
-      <Route path="/recipes" />
+      <Route path="/recipes" component={Dashboard} history={useHistory()} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register}/>
       <Route exact path="/" component={Home}/>
@@ -21,3 +22,4 @@ function App() {
 }
 
 export default App;
+                           

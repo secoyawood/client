@@ -31,7 +31,7 @@ const Dashboard = (props) => {
                         <p>Overlord: {rec.source}</p> 
                         <p>Contributor: {rec.contributor}</p>
                         <p>Description: {rec.description}</p>
-                        {/* <img width="200px" src={rec.image_url}/> */}
+                        <img width="200px" src={rec.image_url}/>
                     </Resdiv>
                         )    
                 })}

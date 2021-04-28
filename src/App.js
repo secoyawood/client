@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "./routes/home/Home";
+import Login from "./routes/home/login/Login"
+import Register from "./routes/home/register/Register"
 
 function App() {
   return (
@@ -9,13 +11,14 @@ function App() {
       {/**<PrivateRoute to="/account/:id" /> */}
       {/**<PrivateRoute to="/recipes/add" /> */}
       {/**<PrivateRoute to="/recipes/:id/edit" /> */}
-      {/**<Route to="/recipes/:id" /> */}
-      {/**<Route to="/recipes" /> */}
-      {/**<Route to="/login" /> */}
-      {/**<Route to="/register" /> */}
-      <Route to="/" component={Home}/>
+      <Route path="/recipes/:id" />
+      <Route path="/recipes" />
+      <Route path="/login" component={Login}/>
+      <Route path="/register" component={Register}/>
+      <Route exact path="/" component={Home}/>
     </Switch>
   );
 }
 
 export default App;
+                    

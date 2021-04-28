@@ -4,6 +4,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Dashboard from "./routes/dashboard/Dashboard";
 
 import Home from "./routes/home/Home";
+
 import Login from "./routes/login/Login";
 import Register from "./routes/register/Register";
 import Recipes from "../src/routes/recipes/Recipes";
@@ -29,6 +30,8 @@ function App() {
 			<Route exact path="/" component={Home} />
 		</Switch>
 	);
+
 }
 
 export default App;
+                    

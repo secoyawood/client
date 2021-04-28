@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./Register.css";
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/Header'
 
 export default function Register() {
   const [email, setEmail] = useState("");

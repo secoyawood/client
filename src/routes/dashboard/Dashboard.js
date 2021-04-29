@@ -80,25 +80,33 @@ const Dashboard = (props) => {
                 <SectionBottom>
                     {recipes.map((rec) => {
                         return ( <Resdiv key={rec.id}>
+                            <img width="100%" height="40%" backgroundSize= "cover" backgroundRepeat= "none" backgroundPosition="center" src={rec.image_url}/>
                             <h1>Title: {rec.title}</h1>
                             <p>Categories: {rec.categories}</p>
                             <p>Overlord: {rec.source}</p> 
                             <p>Contributor: {rec.contributor}</p>
                             <p>Description: {rec.description}</p>
-                            {/* <img width="200px" src={rec.image_url}/> */}
                         </Resdiv>
                             )    
                     })}
                 </SectionBottom>
             </div>
             <Footer />
-    </>
+        </>
     )
 }
 
 const Resdiv = styled.div`
-border: 2px solid red;
-width: 50vw;
-height: 100vh;
+    border: 2px solid red;
+    width: 50vw;
+    height: 100vh;
+    border-radius: 0.35em;
+    border: solid 3px #49bf9d;
+    // .img {
+    //     background-size: cover;
+    //     background-repeat: none;
+    //     background-position: center;
+    }
+
 `
 export default Dashboard

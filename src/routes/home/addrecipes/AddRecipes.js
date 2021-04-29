@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 // import "./AddRecipes.css";
 import Form from "react-bootstrap/Form";
@@ -65,8 +66,16 @@ const AddRecipes = () => {
 		// console.log();
 	};
 
+	const addIngredient = (recipe, ingredient) => {
+		// console.log(recipes.ingredients);
+		setRecipe({
+			...recipe,
+			ingredient: [...recipe.ingredients, ingredient],
+		});
+
 	const addIngredient = (recipes) => {
 		console.log(recipes.ingredients);
+
 		// recipes.ingredients.setState({
 		// 	ingredient_id: Date.now(),
 		// 	name: "title",
@@ -78,6 +87,62 @@ const AddRecipes = () => {
 	const change = (e) => {
 		console.log(e.target.value);
 	};
+
+	return (
+		<div>
+			<Form.Group size="lg" controlId="username">
+				<Form.Label>Title:</Form.Label>
+				<Form.Control
+					autoFocus
+					type="text"
+					value={initialState.title}
+					onChange={change}
+				/>
+			</Form.Group>
+			<Form.Group size="lg" controlId="username">
+				<Form.Label>Image:</Form.Label>
+				<Form.Control
+					type="text"
+					value={initialState.image_url}
+					// onChange={(e) => setUsername(e.target.value)}
+				/>
+			</Form.Group>
+			<Form.Group size="lg" controlId="source">
+				<Form.Label>Source:</Form.Label>
+				<Form.Control
+					type="text"
+					value={initialState.source}
+					// onChange={(e) => setUsername(e.target.value)}
+				/>
+			</Form.Group>
+			<Form.Group size="lg" controlId="username">
+				<Form.Label>Contributor:</Form.Label>
+				<Form.Control
+					type="text"
+					value={initialState.contributor}
+					// onChange={(e) => setUsername(e.target.value)}
+				/>
+			</Form.Group>
+			<Form.Group size="lg" controlId="source">
+				<Form.Label>Categories:</Form.Label>​
+				<Form.Control
+					type="text"
+					value={initialState.categories}
+					// onChange={(e) => setDescription(e.target.value)}
+				/>
+			</Form.Group>
+			<Form.Group size="lg" controlId="description">
+				<Form.Label>Description:</Form.Label>
+				<Form.Control
+					type="text"
+					value={initialState.description}
+					// onChange={(e) => setDescription(e.target.value)}
+				/>
+			</Form.Group>
+
+			<button onClick={addIngredient(recipe)}>Add New Ingredient</button>
+		</div>
+=======
 
     useEffect(() => {
         const script = document.createElement('script');
@@ -151,16 +216,8 @@ const AddRecipes = () => {
 			</StyledDiv>
 			<Footer />
 		</>
+
 	);
 };
 
 export default AddRecipes;
-{
-	/* <form>
-				<label value={initialState.title}>Title: </label>
-				<input type="text" id="fname" name="fname" />
-				<label value={initialState.title}>Title: </label>
-
-				<input type="text" id="lname" name="lname" />
-			</form> */
-}

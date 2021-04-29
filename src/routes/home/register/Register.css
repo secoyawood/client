@@ -9,6 +9,8 @@
     }
   }
 
+
+
   @media all and (min-width: 980px) {
     .Login {
       position: absolute;
@@ -17,3 +19,4 @@
       transform: translate(-50%, -50%);
     }
   }
+

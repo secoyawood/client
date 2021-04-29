@@ -15,8 +15,8 @@ function App() {
 	const [user, setUser] = useState({});
 	return (
 		<Switch>
-			<Route path="/account" component={Dashboard} />
-			<Route exact path="/recipes/add" component={AddRecipes} />
+			<PrivateRoute path="/account" component={Dashboard} />
+			<PrivateRoute exact path="/recipes/add" component={AddRecipes} />
 			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />

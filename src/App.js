@@ -9,14 +9,14 @@ import Login from "./routes/home/login/Login";
 import Register from "./routes/home/register/Register";
 import Recipes from "../src/routes/recipes/Recipes";
 import PrivateRoute from "../src/routes/PrivateRoute";
-import AddRecipes from "../src/routes/addrecipes/AddRecipes";
+import AddRecipes from "./routes/home/addrecipes/AddRecipes";
 
 function App() {
 	const [user, setUser] = useState({});
 	return (
 		<Switch>
-			<Route path="/account" component={Dashboard} />
-			<Route path="/recipes/add" component={AddRecipes} />
+			<PrivateRoute path="/account" component={Dashboard} />
+			<PrivateRoute exact path="/recipes/add" component={AddRecipes} />
 			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />

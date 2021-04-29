@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Header from "../home/components/Header";
-import Footer from "../home/components/Footer";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "./Login.css";
 
 export default function Login(props) {

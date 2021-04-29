@@ -1,26 +1,26 @@
 import React, { useState } from "react";
-import "../addrecipes/AddRecipes.css";
+import "./AddRecipes.css";
 import Form from "react-bootstrap/Form";
-import Ingredients from "../home/components/Ingredients";
+// import Ingredients from "../home/components/Ingredients";
 
 const initialState = {
-	id: 1,
+	//id: 1,
 	title: "Microwave Ramen",
 	image_url: "something.com",
 	source: "Garrick's College Roommate",
 	contributor: "garrick",
-	categories: ["easy", "asian", "noodles"],
+	categories: ["easy", "asian", "noodles"], //= "easy asian Noodles".toLowerCase()split(" ")
 	description:
 		"A very easy recipe for when you have no time to get your nightly dose of carbs, sodium, and MSG.",
 	ingredients: [
 		{
-			ingredient_id: 1,
+			//ingredient_id: 1,
 			name: "water",
 			quantity: 2,
 			unit: "cup",
 		},
 		{
-			ingredient_id: 666,
+			//ingredient_id: 666,
 			name: "packaged ramen",
 			quantity: 1,
 			unit: "package",
@@ -51,13 +51,18 @@ const initialState = {
 const AddRecipes = () => {
 	// const [ingredient, setIngredient] = useState({});
 	const [recipeEdit, setRecipeEdit] = useState("");
-	const [recipes, setRecipes] = useState(initialState);
+	const [newIngredient, setNewIngredient] = useState({});
+	const [recipe, setRecipe] = useState(initialState);
 	const login = () => {
 		// console.log();
 	};
 
-	const addIngredient = (recipes) => {
-		console.log(recipes.ingredients);
+	const addIngredient = (recipe, ingredient) => {
+		// console.log(recipes.ingredients);
+		setRecipe({
+			...recipe,
+			ingredient: [...recipe.ingredients, ingredient],
+		});
 		// recipes.ingredients.setState({
 		// 	ingredient_id: Date.now(),
 		// 	name: "title",
@@ -120,11 +125,8 @@ const AddRecipes = () => {
 					// onChange={(e) => setDescription(e.target.value)}
 				/>
 			</Form.Group>
-			{initialState.ingredients.map((ingredient) => {
-				return <Ingredients state={initialState} />;
-			})}
 
-			<button onClick={addIngredient(recipes)}>Add New Ingredient</button>
+			<button onClick={addIngredient(recipe)}>Add New Ingredient</button>
 		</div>
 	);
 };

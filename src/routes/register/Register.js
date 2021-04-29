@@ -10,9 +10,7 @@ export default function Register(props) {
 	function validateForm() {
 		return email.length > 0 && username.length > 0 && password.length > 0;
 	}
-	function handleSubmit(event) {
-		event.preventDefault();
-	}
+	console.log(email, username, password);
 	const register = (e) => {
 		const credentials = { email, username, password };
 		e.preventDefault();
@@ -22,8 +20,11 @@ export default function Register(props) {
 				credentials
 			)
 			.then((res) => {
-				console.log(res.data);
-				localStorage.setItem("token", res.data.payload);
+				console.log(res);
+				console.log(res.data.username);
+				console.log(res.statusTest);
+
+				// localStorage.setItem("token", res.data.payload);
 				props.history.push("/login");
 			})
 			.catch((err) => {

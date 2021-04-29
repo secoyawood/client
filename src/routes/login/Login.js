@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,11 +6,12 @@ import Header from "../home/components/Header";
 import Footer from "../home/components/Footer";
 import "./Login.css";
 
-export default function Login(props) {
+const Login = (props) => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const [loginMessage, setLoginMessage] = useState("");
 
+	console.log("login");
 	function validateForm() {
 		return username.length > 0 && password.length > 0;
 	}
@@ -25,11 +26,13 @@ export default function Login(props) {
 			)
 			.then((res) => {
 				setLoginMessage(res.data.message);
-
-				localStorage.setItem("token", res.data.payload);
+				localStorage.setItem("email", res.data.user.email);
+				localStorage.setItem("id", res.data.user.id);
+				localStorage.setItem("username", res.data.user.username);
+				localStorage.setItem("token", res.data.token);
 				setTimeout(function () {
 					props.history.push("/account");
-				}, 3000);
+				}, 2000);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -75,4 +78,5 @@ export default function Login(props) {
 			<Footer />
 		</>
 	);
-}
+};
+export default Login;

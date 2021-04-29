@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../addrecipes/AddRecipes.css";
 import Form from "react-bootstrap/Form";
-import Ingredients from "../home/components/Ingredients";
-
+import Ingredients from "../../components/Ingredients";
 const initialState = {
 	id: 1,
 	title: "Microwave Ramen",
@@ -49,28 +48,28 @@ const initialState = {
 };
 
 const AddRecipes = () => {
-	// const [ingredient, setIngredient] = useState({});
-	const [recipeEdit, setRecipeEdit] = useState("");
-	const [recipes, setRecipes] = useState(initialState);
-	const login = () => {
-		// console.log();
+	const [ingredient, setIngredient] = useState([]);
+	// const [recipeEdit, setRecipeEdit] = useState("");
+	const [recipe, setRecipe] = useState(initialState);
+	// const addIngredient = (recipe, ingredient) => {
+	// 	console.log(recipe.ingredients);
+	// 	setRecipe({
+	// 		...recipe,
+	// 		ingredient: [...recipe.ingredients, ingredient],
+	// 	});
+	// };
+	const addNewIngredientToRecipe = () => {
+		setIngredient();
 	};
-
-	const addIngredient = (recipes) => {
-		console.log(recipes.ingredients);
-		// recipes.ingredients.setState({
-		// 	ingredient_id: Date.now(),
-		// 	name: "title",
-		// 	quantity: 1,
-		// 	unit: "package",
-		// });
-	};
-
 	const change = (e) => {
 		console.log(e.target.value);
 	};
+	const formSubmit = (e) => {
+		e.preventDefault();
+		console.log(e.target);
+	};
 	return (
-		<div>
+		<Form onSubmit={formSubmit}>
 			<Form.Group size="lg" controlId="username">
 				<Form.Label>Title:</Form.Label>
 				<Form.Control
@@ -90,52 +89,24 @@ const AddRecipes = () => {
 			</Form.Group>
 			<Form.Group size="lg" controlId="source">
 				<Form.Label>Source:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.source}
-					// onChange={(e) => setUsername(e.target.value)}
-				/>
+				<Form.Control type="text" value={initialState.source} />
 			</Form.Group>
 			<Form.Group size="lg" controlId="username">
 				<Form.Label>Contributor:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.contributor}
-					// onChange={(e) => setUsername(e.target.value)}
-				/>
+				<Form.Control type="text" value={initialState.contributor} />
 			</Form.Group>
 			<Form.Group size="lg" controlId="source">
 				<Form.Label>Categories:</Form.Label>​
-				<Form.Control
-					type="text"
-					value={initialState.categories}
-					// onChange={(e) => setDescription(e.target.value)}
-				/>
+				<Form.Control type="text" value={initialState.categories} />
 			</Form.Group>
 			<Form.Group size="lg" controlId="description">
 				<Form.Label>Description:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.description}
-					// onChange={(e) => setDescription(e.target.value)}
-				/>
+				<Form.Control type="text" value={initialState.description} />
 			</Form.Group>
-			{initialState.ingredients.map((ingredient) => {
-				return <Ingredients state={initialState} />;
-			})}
-
-			<button onClick={addIngredient(recipes)}>Add New Ingredient</button>
-		</div>
+			<Ingredients />
+			<button type="submit">Add New Ingredient</button>
+		</Form>
 	);
 };
 
 export default AddRecipes;
-{
-	/* <form>
-				<label value={initialState.title}>Title: </label>
-				<input type="text" id="fname" name="fname" />
-				<label value={initialState.title}>Title: </label>
-
-				<input type="text" id="lname" name="lname" />
-			</form> */
-}

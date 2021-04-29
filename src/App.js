@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 
 import Dashboard from "./routes/dashboard/Dashboard";
@@ -12,26 +12,22 @@ import PrivateRoute from "../src/routes/PrivateRoute";
 import AddRecipes from "../src/routes/addrecipes/AddRecipes";
 
 function App() {
-	const [user, setUser] = useState({});
 	return (
 		<Switch>
-			<PrivateRoute path="/account" component={Dashboard} />
-			<PrivateRoute to="/recipes/add" component={AddRecipes} />
-			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
-			<Route path="/recipes/:id" />
-			<Route path="/recipes" component={Recipes} history={useHistory()} />
-			<Route
-				path="/login"
-				setUser={setUser}
+			<PrivateRoute
+				path="/account"
 				history={useHistory()}
-				component={Login}
+				component={Dashboard}
 			/>
+			<PrivateRoute path="/recipes/add" component={AddRecipes} />
+			<PrivateRoute path="/recipes/:id" />
+			{/* <Route path="/recipes/edit" component={EditRecipes} /> */}
+			<Route path="/recipes" component={Recipes} history={useHistory()} />
+			<Route path="/login" history={useHistory()} component={Login} />
 			<Route path="/register" history={useHistory()} component={Register} />
 			<Route exact path="/" component={Home} />
 		</Switch>
 	);
-
 }
 
 export default App;
-                    

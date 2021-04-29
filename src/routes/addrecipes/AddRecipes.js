@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../addrecipes/AddRecipes.css";
 import Form from "react-bootstrap/Form";
 import Ingredients from "../../components/Ingredients";
@@ -48,9 +48,9 @@ const initialState = {
 };
 
 const AddRecipes = () => {
-	const [ingredient, setIngredient] = useState([]);
+	// const [ingredient, setIngredient] = useState([]);
 	// const [recipeEdit, setRecipeEdit] = useState("");
-	const [recipe, setRecipe] = useState(initialState);
+	// const [recipe, setRecipe] = useState(initialState);
 	// const addIngredient = (recipe, ingredient) => {
 	// 	console.log(recipe.ingredients);
 	// 	setRecipe({
@@ -58,9 +58,9 @@ const AddRecipes = () => {
 	// 		ingredient: [...recipe.ingredients, ingredient],
 	// 	});
 	// };
-	const addNewIngredientToRecipe = () => {
-		setIngredient();
-	};
+	// const addNewIngredientToRecipe = () => {
+	// 	// setIngredient();
+	// };
 	const change = (e) => {
 		console.log(e.target.value);
 	};

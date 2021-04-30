@@ -54,9 +54,8 @@ const initialState = {
 		},
 	],
 };
-const AddRecipes = () => {
 
-	
+const AddRecipes = () => {
 
 	// const [ingredient, setIngredient] = useState({});
 	const [recipeEdit, setRecipeEdit] = useState("");

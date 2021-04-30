@@ -3,8 +3,11 @@ import "./AddRecipes.css";
 import Form from "react-bootstrap/Form";
 // import Ingredients from "../home/components/Ingredients";
 
+const StyledDiv = styled.div `
+	padding: 10%;
+`
 const initialState = {
-	//id: 1,
+	id: 1,
 	title: "Microwave Ramen",
 	image_url: "something.com",
 	source: "Garrick's College Roommate",
@@ -20,6 +23,7 @@ const initialState = {
 			unit: "cup",
 		},
 		{
+
 			//ingredient_id: 666,
 			name: "packaged ramen",
 			quantity: 1,
@@ -49,6 +53,7 @@ const initialState = {
 };
 
 const AddRecipes = () => {
+
 	// const [ingredient, setIngredient] = useState({});
 	const [recipeEdit, setRecipeEdit] = useState("");
 	const [newIngredient, setNewIngredient] = useState({});
@@ -75,8 +80,10 @@ const AddRecipes = () => {
 		console.log(e.target.value);
 	};
 	return (
-		<div>
-			<Form.Group size="lg" controlId="username">
+		<>
+			<Header />
+			<StyledDiv id="main">
+				<Form.Group size="lg" controlId="username">
 				<Form.Label>Title:</Form.Label>
 				<Form.Control
 					autoFocus
@@ -127,7 +134,9 @@ const AddRecipes = () => {
 			</Form.Group>
 
 			<button onClick={addIngredient(recipe)}>Add New Ingredient</button>
-		</div>
+			</StyledDiv>
+			<Footer />
+		</>
 	);
 };
 

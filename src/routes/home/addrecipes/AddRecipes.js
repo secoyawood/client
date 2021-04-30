@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./AddRecipes.css";
 import Form from "react-bootstrap/Form";
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 // import Ingredients from "../home/components/Ingredients";
 
-const StyledDiv = styled.div `
-	padding: 10%;
-`
+// const StyledDiv = styled.div `
+// 	padding: 10%;
+// `
 const initialState = {
 	id: 1,
 	title: "Microwave Ramen",
@@ -83,7 +85,7 @@ const AddRecipes = () => {
 	return (
 		<>
 			<Header />
-			<StyledDiv id="main">
+			<div id="main">
 				<Form.Group size="lg" controlId="username">
 				<Form.Label>Title:</Form.Label>
 				<Form.Control
@@ -134,8 +136,8 @@ const AddRecipes = () => {
 				/>
 			</Form.Group>
 
-			<button onClick={addIngredient(recipe)}>Add New Ingredient</button>
-			</StyledDiv>
+			<button>Add New Ingredient</button>
+			</div>
 			<Footer />
 		</>
 	);

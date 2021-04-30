@@ -15,7 +15,7 @@ function App() {
 	return (
 		<Switch>
 			<PrivateRoute path="/account" component={Dashboard} />
-			<PrivateRoute to="/recipes/add" component={AddRecipes} />
+			<PrivateRoute path="/recipes/add" component={AddRecipes} />
 			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />
@@ -26,7 +26,7 @@ function App() {
 				component={Login}
 			/>
 			<Route path="/register" history={useHistory()} component={Register} />
-			<Route exact path="/" component={Home} />
+			<Route path="/" component={Home} />
 		</Switch>
 	);
 }

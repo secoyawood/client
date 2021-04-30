@@ -132,12 +132,12 @@ const AddRecipes = () => {
 };
 
 export default AddRecipes;
-{
-	/* <form>
-				<label value={initialState.title}>Title: </label>
-				<input type="text" id="fname" name="fname" />
-				<label value={initialState.title}>Title: </label>
+// {
+// 	/* <form>
+// 				<label value={initialState.title}>Title: </label>
+// 				<input type="text" id="fname" name="fname" />
+// 				<label value={initialState.title}>Title: </label>
 
-				<input type="text" id="lname" name="lname" />
-			</form> */
-}
+// 				<input type="text" id="lname" name="lname" />
+// 			</form> */
+// }

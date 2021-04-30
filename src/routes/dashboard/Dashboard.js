@@ -80,7 +80,7 @@ const Dashboard = (props) => {
                 <SectionBottom>
                     {recipes.map((rec) => {
                         return ( <Resdiv key={rec.id}>
-                            <img width="100%" height="40%" backgroundSize= "cover" backgroundRepeat= "none" backgroundPosition="center" src={rec.image_url}/>
+                            <CardImg width="100%" height="40%" src={rec.image_url}/>
                             <h1>Title: {rec.title}</h1>
                             <p>Categories: {rec.categories}</p>
                             <p>Overlord: {rec.source}</p> 
@@ -102,11 +102,10 @@ const Resdiv = styled.div`
     height: 100vh;
     border-radius: 0.35em;
     border: solid 3px #49bf9d;
-    // .img {
-    //     background-size: cover;
-    //     background-repeat: none;
-    //     background-position: center;
-    }
-
 `
+
+const CardImg = styled.img`
+    object-fit: cover;
+`
+
 export default Dashboard

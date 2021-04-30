@@ -3,7 +3,7 @@ import "./AddRecipes.css";
 import Form from "react-bootstrap/Form";
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-// import Ingredients from "../home/components/Ingredients";
+import Ingredients from "../components/Ingredients";
 
 // const StyledDiv = styled.div `
 // 	padding: 10%;

@@ -14,8 +14,15 @@ function App() {
 	// const [user, setUser] = useState({});
 	return (
 		<Switch>
-			<PrivateRoute path="/account" component={Dashboard} />
-			<PrivateRoute path="/add" > <AddRecipes/> </PrivateRoute>
+			<PrivateRoute
+				path="/account"
+				history={useHistory()}
+				component={Dashboard}
+			/>
+			<PrivateRoute path="/recipes/add" component={AddRecipes}>
+				{" "}
+				<AddRecipes />{" "}
+			</PrivateRoute>
 			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />
@@ -26,7 +33,7 @@ function App() {
 				component={Login}
 			/>
 			<Route path="/register" history={useHistory()} component={Register} />
-			<Route path="/" component={Home} />
+			<Route exact path="/" component={Home} />
 		</Switch>
 	);
 }

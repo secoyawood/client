@@ -24,12 +24,16 @@ export default function Login(props) {
 				credentials
 			)
 			.then((res) => {
+				console.log(res);
 				setLoginMessage(res.data.message);
+				localStorage.setItem("email", res.data.user.email);
+				localStorage.setItem("username", res.data.user.username);
+				localStorage.setItem("id", res.data.user.id);
 
-				localStorage.setItem("token", res.data.payload);
+				localStorage.setItem("token", res.data.token);
 				setTimeout(function () {
 					props.history.push("/account");
-				}, 3000);
+				}, 2000);
 			})
 			.catch((err) => {
 				console.log(err);

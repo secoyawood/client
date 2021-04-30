@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import "./AddRecipes.css";
-import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form"
 import styled from "styled-components";
 // import Ingredients from "../home/components/Ingredients";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import { FormLabel } from "react-bootstrap";
-import Ingredients from "../components/Ingredients";
 import axios from "axios";
 
-const StyledDiv = styled.div`
-	padding: 10%;
-`;
+
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import Ingredients from "../components/Ingredients";
+
+const StyledDiv = styled.div `
+ 	padding: 10%;
+`
+
 const initialState = {
 	id: 1,
 	title: "",
@@ -56,13 +59,37 @@ const initialState = {
 		},
 	],
 };
-
 const AddRecipes = () => {
 	const [form, setForm] = useState(initialState);
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios.post(``);
+
+	
+
+	// const [ingredient, setIngredient] = useState({});
+	const [recipeEdit, setRecipeEdit] = useState("");
+	const [newIngredient, setNewIngredient] = useState({});
+	const [recipe, setRecipe] = useState(initialState);
+	const login = () => {
+		// console.log();
+	};
+
+	const addIngredient = (recipe, ingredient) => {
+		// console.log(recipes.ingredients);
+		setRecipe({
+			...recipe,
+			ingredient: [...recipe.ingredients, ingredient],
+		});
+		// recipes.ingredients.setState({
+		// 	ingredient_id: Date.now(),
+		// 	name: "title",
+		// 	quantity: 1,
+		// 	unit: "package",
+		// });
+
 	};
 
 	const change = (e) => {
@@ -75,6 +102,7 @@ const AddRecipes = () => {
 	return (
 		<>
 			<Header />
+
 			<Form onSubmit={handleSubmit}>
 				<StyledDiv id="main">
 					<Form.Group size="lg" controlId="username">
@@ -138,9 +166,6 @@ const AddRecipes = () => {
 					</button>
 				</StyledDiv>
 			</Form>
-			<Footer />
-		</>
-	);
 };
 
 export default AddRecipes;

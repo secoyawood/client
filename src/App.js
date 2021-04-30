@@ -27,6 +27,11 @@ function App() {
 				<AddRecipes />{" "}
 			</PrivateRoute>
 			<PrivateRoute to="/recipes/:id/edit" component={EditRecipes} />
+
+			<Route path="/account" component={Dashboard} />
+			<Route path="/add" > <AddRecipes/> </Route>
+			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
+
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />
 			<Route
@@ -39,6 +44,8 @@ function App() {
 			<Route exact path="/" component={Home} />
 		</Switch>
 	);
+
 }
 
 export default App;
+

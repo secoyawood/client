@@ -1811,7 +1811,6 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	input[type="username"],
 	select,
 	textarea {
 		-moz-appearance: none;
@@ -1832,7 +1831,6 @@ input, select, textarea {
 		input[type="text"]:invalid,
 		input[type="password"]:invalid,
 		input[type="email"]:invalid,
-		input[type="username"]:invalid,
 		select:invalid,
 		textarea:invalid {
 			box-shadow: none;
@@ -1841,7 +1839,6 @@ input, select, textarea {
 		input[type="text"]:focus,
 		input[type="password"]:focus,
 		input[type="email"]:focus,
-		input[type="username"]:focus,
 		select:focus,
 		textarea:focus {
 			border-color: #49bf9d;
@@ -1873,7 +1870,6 @@ input, select, textarea {
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	input[type="username"],
 	select {
 		height: 2.75em;
 	}

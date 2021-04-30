@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FormLabel } from "react-bootstrap";
 import Ingredients from "../components/Ingredients";
+import axios from "axios";
 
 const StyledDiv = styled.div`
 	padding: 10%;
@@ -57,14 +58,11 @@ const initialState = {
 };
 
 const AddRecipes = () => {
-	const [title, setTitle] = useState("");
-	const [source, setSource] = useState("");
-	const [contributor, setContributor] = useState("");
 	const [form, setForm] = useState(initialState);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(title, source);
+		axios.post(``);
 	};
 
 	const change = (e) => {
@@ -116,7 +114,7 @@ const AddRecipes = () => {
 							onChange={change}
 						/>
 					</Form.Group>
-					<h2>Ingredients</h2>
+
 					{form.ingredients.map((ing) => (
 						<p key={ing.name}>{ing.name}</p>
 					))}

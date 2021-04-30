@@ -39,15 +39,7 @@ export default function Login(props) {
 				console.log(err);
 			});
 	};
-	// useEffect(() => {
-	// 	const script = document.createElement("script");
-	// 	script.src = "assets/js/main.js";
-	// 	script.defer = true;
-	// 	document.body.appendChild(script);
-	// 	return () => {
-	// 		document.body.removeChild(script);
-	// 	};
-	// }, [login]);
+
 	return (
 		<>
 			<Header />

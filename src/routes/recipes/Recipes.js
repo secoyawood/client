@@ -8,7 +8,7 @@ const Recipes = (props) => {
 	};
 	const handleGetRecipes = () => {
 		axios
-			.get("https://tt16-secret-recipes.herokuapp.com/api/recipes/1")
+			.get("https://tt16-secret-recipes.herokuapp.com/api/recipes/")
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
 	};

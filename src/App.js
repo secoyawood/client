@@ -2,13 +2,16 @@ import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 
 import Dashboard from "./routes/dashboard/Dashboard";
+
 import Home from "./routes/home/Home";
+
 import Login from "./routes/home/login/Login";
 
 import Register from "./routes/home/register/Register";
 import Recipes from "../src/routes/recipes/Recipes";
 import PrivateRoute from "../src/routes/PrivateRoute";
 import AddRecipes from "./routes/home/addrecipes/AddRecipes";
+import EditRecipes from "./routes/editRecipes/EditRecipes";
 
 function App() {
 	// const [user, setUser] = useState({});
@@ -23,7 +26,7 @@ function App() {
 				{" "}
 				<AddRecipes />{" "}
 			</PrivateRoute>
-			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
+			<PrivateRoute to="/recipes/:id/edit" component={EditRecipes} />
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />
 			<Route

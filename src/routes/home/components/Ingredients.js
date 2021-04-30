@@ -53,7 +53,7 @@ const Ingredients = (props) => {
 				<option>Ounces</option>
 				<option>Packages</option>
 			</select>
-			<input type="submit" />
+			<input type="submit" value="Submit" />
 		</form>
 	);
 };

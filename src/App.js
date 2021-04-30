@@ -4,10 +4,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import Dashboard from "./routes/dashboard/Dashboard";
 
 import Home from "./routes/home/Home";
-
-
-import Login from "./routes/home/login/Login";
-
+import Login from "./routes/home/login/Login.js";
 import Register from "./routes/home/register/Register";
 import Recipes from "../src/routes/recipes/Recipes";
 import PrivateRoute from "../src/routes/PrivateRoute";
@@ -18,7 +15,7 @@ function App() {
 	return (
 		<Switch>
 			<PrivateRoute path="/account" component={Dashboard} />
-			<PrivateRoute exact path="/recipes/add" component={AddRecipes} />
+			<PrivateRoute to="/recipes/add" component={AddRecipes} />
 			{/* <PrivateRoute to="/recipes/:id/edit" /> */}
 			<Route path="/recipes/:id" />
 			<Route path="/recipes" component={Recipes} history={useHistory()} />
@@ -32,8 +29,6 @@ function App() {
 			<Route exact path="/" component={Home} />
 		</Switch>
 	);
-
 }
 
 export default App;
-                    

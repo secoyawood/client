@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import "./AddRecipes.css";
-import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form"
+import styled from "styled-components";
+// import Ingredients from "../home/components/Ingredients";
+import { FormLabel } from "react-bootstrap";
+import axios from "axios";
+
+
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Ingredients from "../components/Ingredients";
 
-// const StyledDiv = styled.div `
-// 	padding: 10%;
-// `
+const StyledDiv = styled.div `
+ 	padding: 10%;
+`
+
 const initialState = {
 	id: 1,
-	title: "Microwave Ramen",
+	title: "",
 	image_url: "something.com",
-	source: "Garrick's College Roommate",
+	source: "",
 	contributor: "garrick",
 	categories: ["easy", "asian", "noodles"], //= "easy asian Noodles".toLowerCase()split(" ")
 	description:
@@ -25,7 +32,6 @@ const initialState = {
 			unit: "cup",
 		},
 		{
-
 			//ingredient_id: 666,
 			name: "packaged ramen",
 			quantity: 1,
@@ -54,6 +60,12 @@ const initialState = {
 	],
 };
 const AddRecipes = () => {
+	const [form, setForm] = useState(initialState);
+
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		axios.post(``);
 
 	
 
@@ -77,79 +89,83 @@ const AddRecipes = () => {
 		// 	quantity: 1,
 		// 	unit: "package",
 		// });
+
 	};
 
 	const change = (e) => {
-		console.log(e.target.value);
+		const { name, value } = e.target;
+		setForm({
+			...form,
+			[name]: value,
+		});
 	};
 	return (
 		<>
 			<Header />
-			<div id="main">
-				<Form.Group size="lg" controlId="username">
-				<Form.Label>Title:</Form.Label>
-				<Form.Control
-					autoFocus
-					type="text"
-					value={initialState.title}
-					onChange={change}
-				/>
-			</Form.Group>
-			<Form.Group size="lg" controlId="username">
-				<Form.Label>Image:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.image_url}
-					// onChange={(e) => setUsername(e.target.value)}
-				/>
-			</Form.Group>
-			<Form.Group size="lg" controlId="source">
-				<Form.Label>Source:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.source}
-					// onChange={(e) => setUsername(e.target.value)}
-				/>
-			</Form.Group>
-			<Form.Group size="lg" controlId="username">
-				<Form.Label>Contributor:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.contributor}
-					// onChange={(e) => setUsername(e.target.value)}
-				/>
-			</Form.Group>
-			<Form.Group size="lg" controlId="source">
-				<Form.Label>Categories:</Form.Label>​
-				<Form.Control
-					type="text"
-					value={initialState.categories}
-					// onChange={(e) => setDescription(e.target.value)}
-				/>
-			</Form.Group>
-			<Form.Group size="lg" controlId="description">
-				<Form.Label>Description:</Form.Label>
-				<Form.Control
-					type="text"
-					value={initialState.description}
-					// onChange={(e) => setDescription(e.target.value)}
-				/>
-			</Form.Group>
 
-			<button>Add New Ingredient</button>
-			</div>
-			<Footer />
-		</>
-	);
+			<Form onSubmit={handleSubmit}>
+				<StyledDiv id="main">
+					<Form.Group size="lg" controlId="username">
+						<Form.Label>Title:</Form.Label>
+						<Form.Control
+							autoFocus
+							type="text"
+							value={form.title}
+							onChange={change}
+						/>
+					</Form.Group>
+					<Form.Group size="lg" controlId="username">
+						<Form.Label>Image:</Form.Label>
+						<Form.Control
+							type="text"
+							value={form.image_url}
+							onChange={change}
+						/>
+					</Form.Group>
+					<Form.Group size="lg" controlId="source">
+						<Form.Label>Source:</Form.Label>
+						<Form.Control type="text" value={form.source} onChange={change} />
+					</Form.Group>
+					<Form.Group size="lg" controlId="source">
+						<Form.Label>Categories:</Form.Label>​
+						<Form.Control
+							type="text"
+							value={form.categories}
+							onChange={change}
+						/>
+					</Form.Group>
+					<Form.Group size="lg" controlId="description">
+						<Form.Label>Description:</Form.Label>
+						<Form.Control
+							type="text"
+							value={form.description}
+							onChange={change}
+						/>
+					</Form.Group>
+
+					{form.ingredients.map((ing) => (
+						<p key={ing.name}>{ing.name}</p>
+					))}
+					<Ingredients
+						ingredients={form.ingredients}
+						setForm={setForm}
+						form={form}
+					/>
+
+					<h2>Directions</h2>
+					{initialState.steps.map((step, index) => {
+						return (
+							<Form.Group key={index} size="lg" controlId="description">
+								<Form.Label>Step Number: {step.step_number}</Form.Label>
+								<Form.Control type="text" value={step.instructions} />
+							</Form.Group>
+						);
+					})}
+					<button onClick={handleSubmit} type="submit">
+						Submit
+					</button>
+				</StyledDiv>
+			</Form>
 };
 
 export default AddRecipes;
-// {
-// 	/* <form>
-// 				<label value={initialState.title}>Title: </label>
-// 				<input type="text" id="fname" name="fname" />
-// 				<label value={initialState.title}>Title: </label>
-
-// 				<input type="text" id="lname" name="lname" />
-// 			</form> */
-// }
